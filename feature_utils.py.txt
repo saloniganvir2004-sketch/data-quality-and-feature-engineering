@@ -1,0 +1,28 @@
+"""
+Utility functions for feature engineering.
+This file contains reusable helper functions used in data preprocessing.
+"""
+
+import pandas as pd
+
+
+def calculate_total_score(df):
+    """
+    Calculate total score from math, reading, and writing scores.
+    """
+    df = df.copy()
+    df["total_score"] = (
+        df["math score"] +
+        df["reading score"] +
+        df["writing score"]
+    )
+    return df
+
+
+def calculate_average_score(df):
+    """
+    Calculate average score based on total score.
+    """
+    df = df.copy()
+    df["average_score"] = df["total_score"] / 3
+    return df
